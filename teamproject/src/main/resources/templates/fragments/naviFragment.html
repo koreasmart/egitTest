@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<div id="header" th:fragment="naviFragment">
+		상단메뉴<br>
+		/fragments/naviFragment.html<br><br><br>
+		<a th:href="@{/member/addMember}">회원가입</a>
+		<a th:href="@{/member/memberList}">회원목록</a>
+		<a th:href="@{/goods/addGoods}">상품등록</a>
+		<a th:href="@{/goods/goodsList}">상품조회</a>
+		<a th:href="@{/goods/sellerList}">판매자현황</a>
+		<a th:href="@{/member/loginHistory}">로그인이력(페이징)</a>
+		<a th:if="${session.S_MEMBER_INFO == null}" th:href="@{/member/login}">로그인</a>
+		<a th:unless="${session.S_MEMBER_INFO == null}" th:href="@{/member/logout}">로그아웃</a>
+		<br>
+		<div th:unless="${session.SID == null}">
+			<label th:text="${session.SID}"></label>
+		</div>
+	</div>
+</html>
